@@ -37,7 +37,7 @@ view: gam_impression_funnel {
                 , min(time) as first_impression
                 , max(time) as latest_impression
                 , count(*) as count_impressions
-            from `shining-fiber-196400.ads_dfp_transfer.NetworkImpressions_11111111111` as gam_impressions
+            from `ekoblov-test.dfp.impression_8264` as gam_impressions
             -- where userid <> '' and userid is not null
             WHERE
             -- if dev --  (((gam_impressions._DATA_DATE ) >= ((DATE(TIMESTAMP_TRUNC(CAST(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -7 DAY) AS TIMESTAMP), DAY)))) AND (gam_impressions._DATA_DATE ) < ((DATE(TIMESTAMP_TRUNC(CAST(TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -7 DAY), INTERVAL 8 DAY) AS TIMESTAMP), DAY))))))
@@ -63,7 +63,7 @@ view: gam_impression_funnel {
                 , min(time) as first_click
                 , max(time) as latest_click
                 , count(*) as count_clicks
-            from `shining-fiber-196400.ads_dfp_transfer.NetworkClicks_11111111111` as gam_clicks  --may need to swap table name with `NetworkClicks` depending on your naming convention
+            from `ekoblov-test.dfp.impression_8264` as gam_clicks  --may need to swap table name with `NetworkClicks` depending on your naming convention
             -- where userid <> '' and userid is not null
             WHERE
             -- if dev --  (((gam_clicks._DATA_DATE ) >= ((DATE(TIMESTAMP_TRUNC(CAST(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -7 DAY) AS TIMESTAMP), DAY)))) AND (gam_clicks._DATA_DATE ) < ((DATE(TIMESTAMP_TRUNC(CAST(TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -7 DAY), INTERVAL 8 DAY) AS TIMESTAMP), DAY))))))
